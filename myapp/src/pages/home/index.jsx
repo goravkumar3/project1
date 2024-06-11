@@ -15,11 +15,12 @@ const Home = () => {
   let Navigate=useNavigate()
   let logout=()=>{
     localStorage.removeItem('token')
+    window.location.reload()
   }
   useEffect(() => {
     if(localStorage.getItem('token')===null){
        Navigate('/')
-    }if(localStorage.getItem('verify')===null){
+    }else if(localStorage.getItem('verify')===null){
       Navigate('/EmailVerify')
     }
   
